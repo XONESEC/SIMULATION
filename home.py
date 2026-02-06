@@ -13,13 +13,6 @@ def show_pdf_controls(file_path, label):
                 mime="application/pdf",
                 use_container_width=True
             )
-
-        st.link_button(
-            f"📖 Open {label} in new tab",
-            file_path.as_posix(),
-            use_container_width=True
-        )
-
     else:
         st.error(f"{label} not found")
 
