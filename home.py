@@ -1,5 +1,22 @@
 import streamlit as st
 from pathlib import Path
+import base64
+
+def show_pdf(file_path):
+    try:
+        with open(file_path, "rb") as f:
+            base64_pdf = base64.b64encode(f.read()).decode("utf-8")
+
+        pdf_display = f"""
+        <iframe src="data:application/pdf;base64,{base64_pdf}"
+        width="100%" height="600" type="application/pdf"></iframe>
+        """
+
+        st.markdown(pdf_display, unsafe_allow_html=True)
+
+    except Exception as e:
+        st.error(f"Gagal membuka PDF: {e}")
+
 
 SIMULATION = Path(__file__).resolve().parent
 
@@ -8,6 +25,7 @@ heat_manual = SIMULATION / "assets" / "manuals" / "Manual Book Heat-Conduction E
 
 laplace_image = SIMULATION / "assets" / "images" / "Laplace.png"
 laplace_manual = SIMULATION / "assets" / "manuals" / "Manual Book Laplace.pdf"
+
 
 
 
@@ -32,7 +50,7 @@ with col1:
 
     if st.session_state.show_heat:
         if heat_manual.exists():
-            st.pdf(str(heat_manual))
+            show_pdf(heat_manual)
         else:
             st.error("Heat manual PDF not found")
 
@@ -51,11 +69,12 @@ with col2:
 
     if st.session_state.show_laplace:
         if laplace_manual.exists():
-            st.pdf(str(laplace_manual))
+            show_pdf(laplace_manual)
         else:
             st.error("Laplace manual PDF not found")
 
     if st.button("🌊 Laplace Simulation"):
         st.switch_page("laplace.py")
+
 
 
