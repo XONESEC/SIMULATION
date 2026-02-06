@@ -2,7 +2,7 @@ import streamlit as st
 from pathlib import Path
 
 
-SIMULATION = Path(__file__).parent
+SIMULATION = Path.cwd()
 
 heat_image = SIMULATION / "assets" / "images" / "Heat.png"
 heat_manual = SIMULATION / "assets" / "manuals" / "Manual Book Heat-Conduction Equation.pdf"
@@ -41,3 +41,4 @@ with col2:
 
     if st.button("🌊 Laplace Simulation"):
         st.switch_page("laplace.py")
+
