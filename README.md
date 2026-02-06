@@ -1,4 +1,4 @@
-#📘 Engineering Simulation Platform
+#📘Engineering Simulation Platform
 
 A web-based interactive simulation platform built using Streamlit that allows users to run numerical simulations for engineering problems and access supporting manuals.
 
@@ -20,7 +20,8 @@ This platform currently provides simulation modules for:
 
 * Lightweight and user-friendly UI
 
-#🧪 Available Simulations
+#🧪Available Simulations
+
 **🔥 Heat Conduction Simulation**
 
 Simulates heat transfer using numerical methods to analyze temperature distribution over time.
