@@ -1,13 +1,14 @@
 import streamlit as st
 from pathlib import Path
 
-SIMULATION = Path(__file__).resolve().parent.parent
+SIMULATION = Path(__file__).resolve().parent
 
 heat_image = SIMULATION / "assets" / "images" / "Heat.png"
 heat_manual = SIMULATION / "assets" / "manuals" / "Manual Book Heat-Conduction Equation.pdf"
 
 laplace_image = SIMULATION / "assets" / "images" / "Laplace.png"
 laplace_manual = SIMULATION / "assets" / "manuals" / "Manual Book Laplace.pdf"
+
 
 
 if "show_heat" not in st.session_state:
@@ -56,4 +57,5 @@ with col2:
 
     if st.button("🌊 Laplace Simulation"):
         st.switch_page("laplace.py")
+
 
